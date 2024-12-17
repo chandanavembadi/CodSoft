@@ -1,0 +1,28 @@
+movies = [
+    {"title": "The Dark Knight", "genres": ["Action", "Crime", "Drama"]},
+    {"title": "Inception", "genres": ["Action", "Adventure", "Sci-Fi"]},
+    {"title": "The Matrix", "genres": ["Action", "Sci-Fi"]},
+    {"title": "The Godfather", "genres": ["Crime", "Drama"]},
+    {"title": "Interstellar", "genres": ["Adventure", "Drama", "Sci-Fi"]},
+    {"title": "Pulp Fiction", "genres": ["Crime", "Drama"]},
+    {"title": "Forrest Gump", "genres": ["Drama", "Romance"]},
+    {"title": "Titanic", "genres": ["Drama", "Romance"]},
+    {"title": "The Shawshank Redemption", "genres": ["Drama"]},
+    {"title": "The Lion King", "genres": ["Animation", "Adventure", "Drama"]},
+]
+
+def recommend_movies(user_genres):
+    recommendations = []
+    
+    for movie in movies:
+        if any(genre in user_genres for genre in movie["genres"]):
+            recommendations.append(movie["title"])
+    
+    return recommendations
+
+user_preferences = ["Drama", "Sci-Fi"]
+
+recommended_movies = recommend_movies(user_preferences)
+print("Recommended Movies for You:")
+for movie in recommended_movies:
+    print(f"- {movie}")
